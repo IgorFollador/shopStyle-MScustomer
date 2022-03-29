@@ -29,6 +29,7 @@ public class User {
     @JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING)
     private LocalDate birthdate;
 
+    @Column(unique = true)
     private String email;
 
     private String password;
