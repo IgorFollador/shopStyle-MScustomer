@@ -1,5 +1,6 @@
 package uol.compass.shopStyle.customer.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.Getter;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -27,8 +28,8 @@ public class UserFormDTO {
     @NotEmpty
     private String cpf;
 
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
-    String birthdate;
+    @JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING)
+    LocalDate birthdate;
 
     @NotEmpty
     private String email;

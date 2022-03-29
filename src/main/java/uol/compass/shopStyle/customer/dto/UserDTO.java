@@ -1,5 +1,6 @@
 package uol.compass.shopStyle.customer.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,7 +21,7 @@ public class UserDTO {
     private String lastName;
     private Sex sex;
     private String cpf;
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING)
     LocalDate birthdate;
     private String email;
     private Boolean active;

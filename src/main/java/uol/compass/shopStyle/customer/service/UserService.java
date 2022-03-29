@@ -4,11 +4,16 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import uol.compass.shopStyle.customer.dto.UserDTO;
 import uol.compass.shopStyle.customer.dto.UserFormDTO;
+import uol.compass.shopStyle.customer.entity.User;
+
+import javax.swing.text.html.Option;
+import java.util.Optional;
 
 public interface UserService {
 
     UserDTO save(UserFormDTO form);
 
-    Page<UserDTO> findAll(Pageable page);
+    Optional<User> findById(Long id);
 
+    UserDTO update(User user, UserFormDTO form);
 }
