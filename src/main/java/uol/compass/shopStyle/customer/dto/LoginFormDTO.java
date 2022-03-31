@@ -3,6 +3,7 @@ package uol.compass.shopStyle.customer.dto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
@@ -17,8 +18,10 @@ public class LoginFormDTO {
     @NotEmpty(message = "email is required")
     private String email;
 
-    @Size(min = 6, message = "password needs at least 6 characters")
     @NotEmpty(message = "password is required")
     private String password;
 
+    public UsernamePasswordAuthenticationToken convert() {
+        return new UsernamePasswordAuthenticationToken(email, password);
+    }
 }

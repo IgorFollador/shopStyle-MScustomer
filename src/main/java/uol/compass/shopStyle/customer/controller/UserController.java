@@ -37,14 +37,14 @@ public class UserController {
                 .body(userService.save(form));
     }
 
-    @GetMapping("/:{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<UserDTO> findById(@PathVariable Long id) {
         Optional<User> userEntity = userService.findById(id);
         if(userEntity.isPresent()) return ResponseEntity.ok().body(mapper.map(userEntity.get(), UserDTO.class));
         return ResponseEntity.notFound().build();
     }
 
-    @PutMapping("/:{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<UserDTO> update(@PathVariable Long id, @RequestBody @Valid UserFormDTO form) {
         Optional<User> userEntity = userService.findById(id);
         if(userEntity.isPresent()) return ResponseEntity.ok().body(userService.update(userEntity.get(), form));
